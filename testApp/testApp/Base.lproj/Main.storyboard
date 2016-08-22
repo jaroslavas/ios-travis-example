@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test_img" translatesAutoresizingMaskIntoConstraints="NO" id="60Q-3f-5q8">
+                                <rect key="frame" x="36" y="36" width="248" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="tt1-hW-Qa8"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u3Z-wo-INE">
+                                <rect key="frame" x="36" y="180" width="248" height="128"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.68235294120000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="JRc-wV-Bie"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="u3Z-wo-INE" firstAttribute="top" secondItem="60Q-3f-5q8" secondAttribute="bottom" constant="16" id="6TQ-9u-iB7"/>
+                            <constraint firstItem="60Q-3f-5q8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="ARK-wh-rEB"/>
+                            <constraint firstItem="60Q-3f-5q8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="DTC-7R-nFr"/>
+                            <constraint firstItem="u3Z-wo-INE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GMW-4L-Qyn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="60Q-3f-5q8" secondAttribute="trailing" constant="20" id="KgB-yB-6G8"/>
+                            <constraint firstItem="u3Z-wo-INE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="gRZ-QA-dWg"/>
+                            <constraint firstItem="60Q-3f-5q8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hZl-b0-Hz3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="u3Z-wo-INE" secondAttribute="trailing" constant="20" id="ivK-0N-6cD"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="test_img" width="580" height="432"/>
+    </resources>
+</document>

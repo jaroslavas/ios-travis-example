@@ -16,6 +16,7 @@
 		D5E6F7DB1D6B1DA2009E3107 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5E6F7D91D6B1DA2009E3107 /* LaunchScreen.storyboard */; };
 		D5E6F7E61D6B1DA2009E3107 /* testAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E6F7E51D6B1DA2009E3107 /* testAppTests.m */; };
 		D5E6F7F11D6B1DA2009E3107 /* testAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E6F7F01D6B1DA2009E3107 /* testAppUITests.m */; };
+		D5E6F8021D6B2553009E3107 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E6F8011D6B2553009E3107 /* SnapshotHelper.swift */; };
 		E031DBA0343C06651C7FA197 /* libPods-testAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F98138EE6DAEE09C1039DF /* libPods-testAppUITests.a */; };
 		F0BDEEC3285D88BC91B7FD5D /* libPods-testApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE4072D410EDD1A7D4C9A96 /* libPods-testApp.a */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,9 @@
 		9DE4072D410EDD1A7D4C9A96 /* libPods-testApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-testApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F98138EE6DAEE09C1039DF /* libPods-testAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-testAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE513690943FE16367DE669B /* Pods-testAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testAppTests/Pods-testAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D516A9DB1D6B2A6200B281C5 /* Snapfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Snapfile; path = fastlane/Snapfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D516A9DC1D6B2C3600B281C5 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D516A9DD1D6B2C3D00B281C5 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D5E6F7C81D6B1DA1009E3107 /* testApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E6F7CC1D6B1DA1009E3107 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D5E6F7CE1D6B1DA2009E3107 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 		D5E6F7EC1D6B1DA2009E3107 /* testAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E6F7F01D6B1DA2009E3107 /* testAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testAppUITests.m; sourceTree = "<group>"; };
 		D5E6F7F21D6B1DA2009E3107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5E6F8001D6B2552009E3107 /* testAppUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "testAppUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		D5E6F8011D6B2553009E3107 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		DABCE965B52ADDEC54AA31A6 /* Pods-testAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testAppUITests/Pods-testAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F3AE421B78F46B675E3BD586 /* Pods-testApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testApp/Pods-testApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +125,9 @@
 		D5E6F7BF1D6B1DA1009E3107 = {
 			isa = PBXGroup;
 			children = (
+				D516A9DD1D6B2C3D00B281C5 /* Appfile */,
+				D516A9DC1D6B2C3600B281C5 /* Fastfile */,
+				D516A9DB1D6B2A6200B281C5 /* Snapfile */,
 				D5E6F7CA1D6B1DA1009E3107 /* testApp */,
 				D5E6F7E41D6B1DA2009E3107 /* testAppTests */,
 				D5E6F7EF1D6B1DA2009E3107 /* testAppUITests */,
@@ -174,8 +183,10 @@
 		D5E6F7EF1D6B1DA2009E3107 /* testAppUITests */ = {
 			isa = PBXGroup;
 			children = (
+				D5E6F8011D6B2553009E3107 /* SnapshotHelper.swift */,
 				D5E6F7F01D6B1DA2009E3107 /* testAppUITests.m */,
 				D5E6F7F21D6B1DA2009E3107 /* Info.plist */,
+				D5E6F8001D6B2552009E3107 /* testAppUITests-Bridging-Header.h */,
 			);
 			path = testAppUITests;
 			sourceTree = "<group>";
@@ -460,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5E6F7F11D6B1DA2009E3107 /* testAppUITests.m in Sources */,
+				D5E6F8021D6B2553009E3107 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,10 +648,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DABCE965B52ADDEC54AA31A6 /* Pods-testAppUITests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = testAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = abc.test.testAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "testAppUITests/testAppUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_TARGET_NAME = testApp;
 			};
 			name = Debug;
@@ -648,10 +663,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 62123E29FB242646A759B624 /* Pods-testAppUITests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = testAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = abc.test.testAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "testAppUITests/testAppUITests-Bridging-Header.h";
 				TEST_TARGET_NAME = testApp;
 			};
 			name = Release;

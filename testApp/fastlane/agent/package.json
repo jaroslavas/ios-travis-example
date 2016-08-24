@@ -1,0 +1,23 @@
+{
+  "name": "app-build-server-agent",
+  "version": "1.0.0",
+  "description": "Generates config files for application",
+  "main": "agent.js",
+  "dependencies": {
+    "lodash": "^4.14.1",
+    "request": "^2.74.0",
+    "rxjs": "^5.0.0-beta.11",
+    "xml2js": "^0.4.17",
+    "mkdirp": "^0.5.1"
+  },
+  "engines": {
+    "node": ">=4.0.0 && < 5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "author": "",
+  "license": "ISC"
+}

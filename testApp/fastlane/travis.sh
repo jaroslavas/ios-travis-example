@@ -15,6 +15,9 @@ if [ -z "$DEPLOY_CHANNEL" ]; then
 fi
 
 
+#just to test agents:
+md5 testApp/Assets.xcassets/test_img.imageset/test_img.jpg
+
 # Run agent
 echo "Running agent"
 cd fastlane/agent
@@ -22,8 +25,14 @@ npm install
 cd ../..
 ./fastlane/agent/agent-cli.sh
 
+
+#just to test agents:
+md5 testApp/Assets.xcassets/test_img.imageset/test_img.jpg
+
+
+
 # Run fastlane
-echo "Running fastlane"
-fastlane $DEPLOY_CHANNEL
-exit $?
+#echo "Running fastlane"
+#fastlane $DEPLOY_CHANNEL
+#exit $?
 

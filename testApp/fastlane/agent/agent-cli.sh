@@ -61,6 +61,9 @@ package_name "${settings['DEPLOY_PACKAGE_NAME']}" # e.g. com.krausefx.app
             let settingKeys = deploymentCheck.split(',');
             settingKeys.forEach(key => {
                 settings[key] = process.env[key];
+                if (settings[key] == null) {
+                    console.log('Warning variable "%s" not found!');
+                }
             });
         } else {
             console.log('Using json params file');
@@ -116,16 +119,17 @@ package_name "${settings['DEPLOY_PACKAGE_NAME']}" # e.g. com.krausefx.app
         let password = settings['DEPLOY_WSAUTHBASICPASSWORD'];
 
         return Rx.Observable.create(o => {
-            request(url, {
-                headers: {
-                    'X-AUTH-TOKEN': token
-                },
-                auth: {
-                    'user': user,
-                    'pass': password
-                },
+            let options = {
                 json: true
-            }, (err, result) => {
+            };
+            if (token) {
+                options['headers']['X-AUTH-TOKEN'] = token;
+            }
+            if (user && password) {
+                options['auth']['user'] = user;
+                options['auth']['password'] = password;
+            }
+            request(url, options, (err, result) => {
                 if (err) {
                     console.log('HTTP Request - Failed');
                     return o.error(err);

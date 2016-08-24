@@ -58,3 +58,4 @@ fastlane/screenshots
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+testApp/fastlane/agent/node_modules

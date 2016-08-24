@@ -26,6 +26,19 @@ platform :ios do
   lane :test do
     scan
   end
+  
+  desc "Download and refresh profiles"
+  lane :match do
+      match(type: "development", force_for_new_devices: true)
+  end
+  
+  desc "Test and deploy"
+  lane :beta do
+      scan
+      
+  end
+  
+  
 
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"

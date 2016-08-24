@@ -61,9 +61,6 @@ package_name "${settings['DEPLOY_PACKAGE_NAME']}" # e.g. com.krausefx.app
             let settingKeys = deploymentCheck.split(',');
             settingKeys.forEach(key => {
                 settings[key] = process.env[key];
-                # if (settings[key] == null) {
-                #     throw new Error('Variable value assertion failed');
-                # }
             });
         } else {
             console.log('Using json params file');

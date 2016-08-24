@@ -11,6 +11,13 @@ if [ -z "$DEPLOY_CHANNEL"]; then
 	return 1
 fi
 
+# Run agent
+cd fastlane/agent
+npm install
+cd ../..
+./stlane/agent/agent-cli.sh
+
+# Run fastlane
 fastlane $DEPLOY_CHANNEL
 exit $?
 

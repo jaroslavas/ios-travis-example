@@ -6,6 +6,10 @@ target 'testApp' do
   # Just a test
   pod 'AFNetworking'
 
+  #deployment to fabric.io
+  pod 'Fabric'
+  pod 'Crashlytics'
+
   # Pods for testApp
 
   target 'testAppTests' do

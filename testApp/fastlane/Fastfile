@@ -34,8 +34,16 @@ platform :ios do
 
   desc "Test and deploy"
   lane :beta do
-      scan
-      
+#      match(type: "development", force_for_new_devices: true)
+
+    cocoapods
+    match(type: "adhoc", force_for_new_devices: true)
+    gym(scheme:"testApp")
+    crashlytics(
+                crashlytics_path: './Pods/Crashlytics',
+                notifications: true
+                )
+
   end
   
   

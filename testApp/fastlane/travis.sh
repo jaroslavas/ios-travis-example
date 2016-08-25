@@ -32,7 +32,7 @@ md5 testApp/Assets.xcassets/test_img.imageset/test_img.jpg
 
 
 # Run fastlane
-#echo "Running fastlane"
-#fastlane $DEPLOY_CHANNEL
-#exit $?
+echo "Running fastlane"
+fastlane $DEPLOY_CHANNEL
+exit $?
 

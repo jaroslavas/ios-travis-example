@@ -7,6 +7,7 @@ xcode_sdk: iphonesimulator9.3
 before_install:
 - brew update
 - brew outdated homebrew/versions/node4-lts || brew install homebrew/versions/node4-lts
+- pod repo update
 
 script:
 - cd testApp/ && ./fastlane/travis.sh

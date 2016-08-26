@@ -30,6 +30,13 @@ cd ../..
 md5 testApp/Assets.xcassets/test_img.imageset/test_img.jpg
 
 
+# Prepare env vars
+$MATCH_GIT_URL = $DEPLOY_MATCH_GIT_URL
+$MATCH_PASSWORD = $DEPLOY_MATCH_PASSWORD
+$MATCH_USERNAME = $DEPLOY_MATCH_USERNAME
+$CRASHLYTICS_API_TOKEN = $DEPLOY_CRASHLYTICS_API_TOKEN
+$CRASHLYTICS_BUILD_SECRET = $DEPLOY_CRASHLYTICS_BUILD_SECRET
+
 
 # Run fastlane
 echo "Running fastlane"

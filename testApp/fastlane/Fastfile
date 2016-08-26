@@ -37,7 +37,7 @@ platform :ios do
 #      match(type: "development", force_for_new_devices: true)
 
     cocoapods
-    match(type: "adhoc", force_for_new_devices: true, git_url: ENV["MATCH_GIT_URL"])
+    match(type: "adhoc", force_for_new_devices: true)
     gym(scheme:"testApp")
     crashlytics(
                 crashlytics_path: './Pods/Crashlytics',

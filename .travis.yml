@@ -1,15 +1,14 @@
 language: objective-c
-xcode_workspace: testApp/testApp.xcworkspace # path to your xcodeproj folder
+xcode_workspace: testApp/testApp.xcworkspace
 xcode_scheme: testApp
 osx_image: xcode7.3
 xcode_sdk: iphonesimulator9.3
-
 before_install:
 - brew update
 - brew outdated homebrew/versions/node4-lts || brew install homebrew/versions/node4-lts
 - pod repo update --silent
-
 script:
 - cd testApp/ && ./fastlane/travis.sh
-
-
+env:
+  global:
+    secure: Xr1Lm9F8qkWKK3b+iov38fPtuISv8AB6gRQq5e3AU+KCKRfBuqKwH0u1cCdbskCtOd1+rghc0dmi1o73jNHWpUHp5/ioHE9rSRy07SoYrI66ByKrQady0PB1XQkzFjyFaFOYWtA335vyxG85pt9GEouhBXixu3afN/JtKkTU4Fa54QLtA4Nd/eZfOYJu0Blgbsnos4hdeCq7/fVpqNe59inOmndXvbXcDwdTmq+iTgXKs3rl3dnOVPwobrTYfIOa/9xzpLElDUl1loy2YoKQ9597wsD1KjW3DTUOWJftFHtRJZ1wyqIKJkg2vz+y6+bXSlGppS88UvZIBc/aPxUGzaIAaSL5cqyMQ/B81d/jLUpxbzfFIA9gjwZd3YR1oLHW+AXmgIZG4VNY9yNr3nsWj/P/jVNI3d6A0s/DcpVNVpt4T9STgAG92AnPvgPH+K0ZLdVVNC8XNhLcJRaJVvxT1XVFRACMF7MymybBnct8KNLKSOKc1d8m9KbJqxigldbq/rrdxEau+25MiHsb5K+tbJvDVd+DrtkylOw7YQVodNNEYNkJUYuTMRoNaewKS90D1YELVScIkqtuxWur7z3+U5+e76FlOhwooXFnhc0QSc1jIg0m5X9UFWPbugIgHuzSrOxD9C+9yAxWQV2/Lnb5rI2JAbaccJQP0yI7UUI5tdQ=

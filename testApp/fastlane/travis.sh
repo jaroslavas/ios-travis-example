@@ -23,7 +23,7 @@ echo "Running agent"
 cd fastlane/agent
 npm install
 cd ../..
-./fastlane/agent/agent-cli.sh
+./fastlane/agent/agent-cli.sh || { echo 'my_command failed' ; exit 1; }
 
 
 #just to test agents:

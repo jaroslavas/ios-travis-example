@@ -59,3 +59,4 @@ fastlane/screenshots
 
 iOSInjectionProject/
 testApp/fastlane/agent/node_modules
+run-agent.sh

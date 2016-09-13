@@ -20,13 +20,12 @@ const agent = function agent(appBasePath) {
             return `app_package_name '${settings['DEPLOY_PACKAGE_NAME']}'
 tests_package_name '${settings['DEPLOY_PACKAGE_NAME']}.test'
 # prd_dk_Takeout_tst_0.1.0_debug_.apk
-app_apk_path 'app/build/outputs/apk/app-${settings['DEPLOY_FLAVOR']}${settings['DEPLOY_APPLICATION_NAME']}_tst_${settings['DEPLOY_VERSION']}_debug_.apk'
+app_apk_path 'app/build/outputs/apk/${settings['DEPLOY_FLAVOR']}${settings['DEPLOY_APPLICATION_NAME']}_tst_${settings['DEPLOY_VERSION']}_debug_.apk'
 # app-prd_dk_-debug-androidTest-unaligned.apk
 tests_apk_path 'app/build/outputs/apk/app-${settings['DEPLOY_FLAVOR']}-debug-androidTest-unaligned.apk'
 locales ['en-US']
 clear_previous_screenshots true
 test_instrumentation_runner 'android.support.test.runner.AndroidJUnitRunner'
-output_directory '/sdcard/screenShoots'
 `;
         },
         generateFastLaneConfig: function (params) {
@@ -81,20 +80,27 @@ package_name "${settings['DEPLOY_PACKAGE_NAME']}" # e.g. com.krausefx.app
     function downloadFile(url, fileName) {
         return new Rx.Observable((o) => {
             "use strict";
-            request
-                .get(url, {}, (err, response) => {
-                    if (err) {
-                        console.log('HTTP - Downloading file has failed', url);
-                        return o.error(err);
-                    }
-                    if (response.statusCode < 200 || response.statusCode >= 400) {
-                        console.log('HTTP - Downloading file has failed', url);
-                        return o.error(err);
-                    }
-                    o.next(fileName);
-                    o.complete();
-                })
-                .pipe(fs.createWriteStream(fileName));
+
+            mkdirp(path.dirname(fileName), (err) => {
+                if (err) {
+                    return o.error(err);
+                }
+
+                request
+                    .get(url, {}, (err, response) => {
+                        if (err) {
+                            console.log('HTTP - Downloading file has failed', url);
+                            return o.error(err);
+                        }
+                        if (response.statusCode < 200 || response.statusCode >= 400) {
+                            console.log('HTTP - Downloading file has failed', url);
+                            return o.error(err);
+                        }
+                        o.next(fileName);
+                        o.complete();
+                    })
+                    .pipe(fs.createWriteStream(fileName));
+            });
         })
     }
 
@@ -163,7 +169,7 @@ package_name "${settings['DEPLOY_PACKAGE_NAME']}" # e.g. com.krausefx.app
             let parser = new xml2js.Parser();
             let builder = new xml2js.Builder();
             if (fs.existsSync(path)) {
-                fs.readFile(path, {}, (err, res) => {
+                fs.readFile(path, 'utf-8', (err, res) => {
                     "use strict";
                     if (err) {
                         return o.error(err);
@@ -283,8 +289,32 @@ package_name "${settings['DEPLOY_PACKAGE_NAME']}" # e.g. com.krausefx.app
             .map(path => ({description: 'Generate build xml file', value: path}))
             ;
     }
+    
+    function replacePlaceHoldersTask(settings$) {
+        "use strict";
+        return settings$
+            .flatMap(s => Rx.Observable.from(s.replaces))
+            .filter(cfgMeta => cfgMeta.variants.indexOf(settings['DEPLOY_VARIANT']) !== -1)
+            .map(cfgMeta => {
+                cfgMeta.path = path.join(appBasePath, cfgMeta.path);
+                return cfgMeta;
+            })
+            .do(cfgMeta => {
+                fs.readFile(cfgMeta.path, 'utf-8', (err, result) => {
+                    if (err) {
+                        throw new Error('Cannot read file trying replace place holders in it');
+                    }
+                    cfgMeta.params.forEach(replaceMeta => {
+                        result = result.replace(new RegExp(replaceMeta.find, replaceMeta.flags), replaceMeta.value);
+                    });
+                    fs.writeFileSync(cfgMeta.path, result);
+                })
+            })
+            .map(cfgMeta => ({description: 'Replace patterns in file', value: cfgMeta.path}));
+    }
 
     this.run = function () {
+        "use strict";
         process.on('unhandledRejection', handleException);
         let RUNNING = true;
 
@@ -299,7 +329,8 @@ package_name "${settings['DEPLOY_PACKAGE_NAME']}" # e.g. com.krausefx.app
                 setParametersTask(settings$),
                 downloadResourcesTask(settings$),
                 writeVersionInfoTask(settings$),
-                generateConfigFilesTask(settings$)
+                generateConfigFilesTask(settings$),
+                replacePlaceHoldersTask(settings$)
             )
             .subscribe((task) => {
                 console.log('Task "%s" (%s) - Done', task.description, task.value);

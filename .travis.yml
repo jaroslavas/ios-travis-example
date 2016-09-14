@@ -7,5 +7,6 @@ before_install:
 - brew update
 - brew outdated homebrew/versions/node4-lts || brew install homebrew/versions/node4-lts
 - pod repo update --silent
+- gem update fastlane
 script:
 - cd testApp/ && ./fastlane/travis.sh

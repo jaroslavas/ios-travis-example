@@ -17,6 +17,8 @@ fi
 
 #just to test agents:
 md5 testApp/Assets.xcassets/test_img.imageset/test_img.jpg
+md5 testApp/Assets.xcassets/test_img.imageset/test_img@2x.jpg
+md5 testApp/Assets.xcassets/test_img.imageset/test_img@3x.jpg
 
 # Run agent
 echo "Running agent"
@@ -28,6 +30,8 @@ cd ../..
 
 #just to test agents:
 md5 testApp/Assets.xcassets/test_img.imageset/test_img.jpg
+md5 testApp/Assets.xcassets/test_img.imageset/test_img@2x.jpg
+md5 testApp/Assets.xcassets/test_img.imageset/test_img@3x.jpg
 
 
 # Prepare env vars

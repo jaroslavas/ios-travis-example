@@ -34,7 +34,10 @@ platform :ios do
 
   desc "Test and deploy"
   lane :beta do
-#      match(type: "development", force_for_new_devices: true)
+
+    if ENV["DEPLOY_VERSION"]
+        set_version_number(ENV["DEPLOY_VERSION"])
+    end
 
 #    cocoapods
     match(type: "adhoc", force_for_new_devices: true, readonly: true)
@@ -48,25 +51,25 @@ platform :ios do
   
   
 
-#  desc "Submit a new Beta Build to Apple TestFlight"
-#  desc "This will also make sure the profile is up to date"
-#  lane :beta do
-#    # match(type: "appstore") # more information: https://codesigning.guide
-#    gym # Build your app - more options available
-#    pilot
-#
-#    # sh "your_script.sh"
-#    # You can also use other beta testing services here (run `fastlane actions`)
-#  end
-#
-#  desc "Deploy a new version to the App Store"
-#  lane :appstore do
-#    # match(type: "appstore")
-#    # snapshot
-#    gym # Build your app - more options available
-#    deliver(force: true)
-#    # frameit
-#  end
+# Helper functions
+
+
+def set_build_number(build_number = nil)
+    raise if build_number.nil?
+
+    puts "Setting build number to #{build_number}"
+    Actions.lane_context[SharedValues::BUILD_NUMBER] = build_number
+    sh("/usr/libexec/PlistBuddy -c 'Set CFBundleVersion #{build_number}' ../TimehopThree/TimehopThree-Info.plist")
+end
+
+def set_version_number(version_number = nil)
+    raise if version_number.nil?
+    
+    puts "Setting version number to #{version_number}"
+    Actions.lane_context[SharedValues::VERSION_NUMBER] = version_number
+    sh("/usr/libexec/PlistBuddy -c 'Set CFBundleShortVersionString #{version_number}' ../TimehopThree/TimehopThree-Info.plist")
+end
+
 
   # You can define as many lanes as you want
 

@@ -78,7 +78,7 @@ def set_app_name(app_name = nil)
     raise if app_name.nil?
     
     puts "Setting app name to #{app_name}"
-    sh("/usr/libexec/PlistBuddy -c 'Set CFBundleDisplayName #{app_name}' ../testApp/Info.plist")
+    sh("/usr/libexec/PlistBuddy -c 'Set CFBundleName #{app_name}' ../testApp/Info.plist")
 end
 
   # You can define as many lanes as you want

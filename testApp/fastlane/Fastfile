@@ -59,7 +59,7 @@ def set_build_number(build_number = nil)
 
     puts "Setting build number to #{build_number}"
     Actions.lane_context[SharedValues::BUILD_NUMBER] = build_number
-    sh("/usr/libexec/PlistBuddy -c 'Set CFBundleVersion #{build_number}' ../TimehopThree/TimehopThree-Info.plist")
+    sh("/usr/libexec/PlistBuddy -c 'Set CFBundleVersion #{build_number}' ../testApp/Info.plist")
 end
 
 def set_version_number(version_number = nil)
@@ -67,7 +67,7 @@ def set_version_number(version_number = nil)
     
     puts "Setting version number to #{version_number}"
     Actions.lane_context[SharedValues::VERSION_NUMBER] = version_number
-    sh("/usr/libexec/PlistBuddy -c 'Set CFBundleShortVersionString #{version_number}' ../TimehopThree/TimehopThree-Info.plist")
+    sh("/usr/libexec/PlistBuddy -c 'Set CFBundleShortVersionString #{version_number}' ../testApp/Info.plist")
 end
 
 

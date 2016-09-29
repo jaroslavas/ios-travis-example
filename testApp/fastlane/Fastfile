@@ -78,7 +78,6 @@ def set_app_name(app_name = nil)
     raise if app_name.nil?
     
     puts "Setting app name to #{app_name}"
-    Actions.lane_context[SharedValues::VERSION_NUMBER] = version_number
     sh("/usr/libexec/PlistBuddy -c 'Set CFBundleDisplayName #{app_name}' ../testApp/Info.plist")
 end
 

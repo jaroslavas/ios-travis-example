@@ -38,7 +38,11 @@ platform :ios do
     if ENV["DEPLOY_VERSION"]
         set_version_number(ENV["DEPLOY_VERSION"])
     end
-
+    
+    if ENV["DEPLOY_APPLICATION_NAME"]
+        set_app_name(ENV["DEPLOY_APPLICATION_NAME"])
+    end
+    
 #    cocoapods
     match(type: "adhoc", force_for_new_devices: true, readonly: true)
     gym(scheme:"testApp")
@@ -70,6 +74,13 @@ def set_version_number(version_number = nil)
     sh("/usr/libexec/PlistBuddy -c 'Set CFBundleShortVersionString #{version_number}' ../testApp/Info.plist")
 end
 
+def set_app_name(app_name = nil)
+    raise if app_name.nil?
+    
+    puts "Setting app name to #{app_name}"
+    Actions.lane_context[SharedValues::VERSION_NUMBER] = version_number
+    sh("/usr/libexec/PlistBuddy -c 'Set CFBundleDisplayName #{app_name}' ../testApp/Info.plist")
+end
 
   # You can define as many lanes as you want
 

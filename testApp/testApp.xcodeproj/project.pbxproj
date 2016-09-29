@@ -286,6 +286,7 @@
 					};
 					D5E6F7EB1D6B1DA2009E3107 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = D5E6F7C71D6B1DA1009E3107;
 					};
 				};
@@ -683,6 +684,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "testAppUITests/testAppUITests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = testApp;
 			};
 			name = Debug;
@@ -697,6 +699,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = abc.test.testAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "testAppUITests/testAppUITests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = testApp;
 			};
 			name = Release;

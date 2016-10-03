@@ -45,6 +45,10 @@ platform :ios do
     
 #    cocoapods
     match(type: "adhoc", force_for_new_devices: true, readonly: true)
+    
+    # Prepare screenshots
+    snapshot
+    #Build and deploy app
     gym(scheme:"testApp")
     crashlytics(
                 crashlytics_path: './Pods/Crashlytics',
@@ -57,7 +61,7 @@ platform :ios do
 
 # Helper functions
 
-
+# TODO: redo using these: https://github.com/fastlane/fastlane/blob/10f316756fb0b2c3e486b4fb3c26ac6393e32146/fastlane/docs/Actions.md#modifying-project
 def set_build_number(build_number = nil)
     raise if build_number.nil?
 

@@ -11,6 +11,7 @@
 @interface ViewController ()
 
 @property (strong) IBOutlet UILabel *labelText;
+@property (strong) IBOutlet UILabel *labelVersion;
 
 @end
 
@@ -21,7 +22,13 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.labelText.text = kTestSTring;
+ 
     
+    // Show app version
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *build = infoDictionary[(NSString*)kCFBundleVersionKey];
+    self.labelVersion.text = [NSString stringWithFormat:@"%@ (%@)", appVersion, build];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -27,56 +27,64 @@ platform :ios do
     scan
   end
   
-#  desc "Download and refresh profiles"
-#  lane :match do
-#      match(type: "development", force_for_new_devices: true)
-#  end
-
+  # -------------------- BETA (fabric.io) --------------------
   desc "Test and deploy"
   lane :beta do
 
-    if ENV["DEPLOY_VERSION"]
-        set_version_number(ENV["DEPLOY_VERSION"])
-    end
+    # Setup app: name, bundle id, etc.
+    read_app_data_from_env
     
-    if ENV["DEPLOY_APPLICATION_NAME"]
-        set_app_name(ENV["DEPLOY_APPLICATION_NAME"])
-    end
-    
-#    cocoapods
+    # Prepare certificates , keys and provisioning profiles
     match(type: "adhoc", force_for_new_devices: true, readonly: true)
     
-    # Prepare screenshots
-    snapshot
-    #Build and deploy app
+    #Build
     gym(scheme:"testApp")
+    
+    # Deploy to fabric.io
     crashlytics(
                 crashlytics_path: './Pods/Crashlytics',
-                notifications: true
+                notifications: false,
+                groups: 'test-group-me'
                 )
 
   end
   
+  # -------------------- RELEASE (AppStore) --------------------
+  desc "Test and deploy"
+  lane :appstore do
+      
+      # Setup app: name, bundle id, etc.
+      read_app_data_from_env
+      
+      # Prepare certificates , keys and provisioning profiles
+      match(type: "appstore", force_for_new_devices: true, readonly: true)
+      
+      # Make screenshots
+      snapshot
+      
+      #Build
+      gym(scheme:"testApp")
+      
+      # Create new app in the appstore if needed
+      produce(
+              username: DEPLOY_MATCH_USERNAME["DEPLOY_MATCH_USERNAME"],
+              app_identifier: ENV["DEPLOY_PACKAGE_NAME"],
+              app_name: ENV["DEPLOY_APPLICATION_NAME"],
+              #language: 'English',
+              version: ENV["DEPLOY_VERSION"],
+              sku: ENV["DEPLOY_PACKAGE_NAME"],
+              team_name: ENV["DEPLOY_APPSTORE_TEAM_NAME"] # Only necessary when in multiple teams.
+              )
+              
+      # Deploy to AppStore
+      deliver(force: true)
+              
+  end
   
 
 # Helper functions
 
 # TODO: redo using these: https://github.com/fastlane/fastlane/blob/10f316756fb0b2c3e486b4fb3c26ac6393e32146/fastlane/docs/Actions.md#modifying-project
-def set_build_number(build_number = nil)
-    raise if build_number.nil?
-
-    puts "Setting build number to #{build_number}"
-    Actions.lane_context[SharedValues::BUILD_NUMBER] = build_number
-    sh("/usr/libexec/PlistBuddy -c 'Set CFBundleVersion #{build_number}' ../testApp/Info.plist")
-end
-
-def set_version_number(version_number = nil)
-    raise if version_number.nil?
-    
-    puts "Setting version number to #{version_number}"
-    Actions.lane_context[SharedValues::VERSION_NUMBER] = version_number
-    sh("/usr/libexec/PlistBuddy -c 'Set CFBundleShortVersionString #{version_number}' ../testApp/Info.plist")
-end
 
 def set_app_name(app_name = nil)
     raise if app_name.nil?
@@ -84,6 +92,31 @@ def set_app_name(app_name = nil)
     puts "Setting app name to #{app_name}"
     sh("/usr/libexec/PlistBuddy -c 'Set CFBundleName #{app_name}' ../testApp/Info.plist")
 end
+
+
+
+private_lane :read_app_data_from_env do |options|
+    if ENV["DEPLOY_VERSION"]
+        increment_version_number(version_number: ENV["DEPLOY_VERSION"]) # Set a specific version number
+    end
+    
+    if ENV["DEPLOY_APPLICATION_NAME"]
+        set_app_name(ENV["DEPLOY_APPLICATION_NAME"])
+    end
+    
+    if ENV["DEPLOY_PACKAGE_NAME"]
+        update_app_identifier(
+                              #xcodeproj: 'Example.xcodeproj', # Optional path to xcodeproj, will use the first .xcodeproj if not set
+                              plist_path: "../testApp/Info.plist", # Path to info plist file, relative to xcodeproj
+                              app_identifier: ENV["DEPLOY_PACKAGE_NAME"] # The App Identifier
+                              )
+    end
+    
+end
+
+
+
+
 
   # You can define as many lanes as you want
 

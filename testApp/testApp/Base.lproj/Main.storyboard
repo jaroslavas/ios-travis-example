@@ -35,12 +35,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exe-1W-RKh">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="u3Z-wo-INE" firstAttribute="top" secondItem="60Q-3f-5q8" secondAttribute="bottom" constant="16" id="6TQ-9u-iB7"/>
                             <constraint firstItem="60Q-3f-5q8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="ARK-wh-rEB"/>
                             <constraint firstItem="60Q-3f-5q8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="DTC-7R-nFr"/>
+                            <constraint firstItem="exe-1W-RKh" firstAttribute="top" secondItem="4Xu-3u-UdK" secondAttribute="bottom" constant="7.5" id="Fla-pW-HNE"/>
                             <constraint firstItem="u3Z-wo-INE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GMW-4L-Qyn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Xu-3u-UdK" secondAttribute="trailing" constant="8" id="K6i-U2-gwd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="60Q-3f-5q8" secondAttribute="trailing" constant="20" id="KgB-yB-6G8"/>
@@ -49,10 +55,12 @@
                             <constraint firstItem="u3Z-wo-INE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="gRZ-QA-dWg"/>
                             <constraint firstItem="60Q-3f-5q8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hZl-b0-Hz3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="u3Z-wo-INE" secondAttribute="trailing" constant="20" id="ivK-0N-6cD"/>
+                            <constraint firstItem="exe-1W-RKh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="n3Y-HB-rkx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="labelText" destination="4Xu-3u-UdK" id="FEi-uM-r3R"/>
+                        <outlet property="labelVersion" destination="exe-1W-RKh" id="gl9-Aj-phg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

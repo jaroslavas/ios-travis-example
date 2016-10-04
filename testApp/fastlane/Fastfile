@@ -107,7 +107,7 @@ private_lane :read_app_data_from_env do |options|
     if ENV["DEPLOY_PACKAGE_NAME"]
         update_app_identifier(
                               #xcodeproj: 'Example.xcodeproj', # Optional path to xcodeproj, will use the first .xcodeproj if not set
-                              plist_path: "../testApp/Info.plist", # Path to info plist file, relative to xcodeproj
+                              plist_path: "./testApp/Info.plist", # Path to info plist file, relative to xcodeproj
                               app_identifier: ENV["DEPLOY_PACKAGE_NAME"] # The App Identifier
                               )
     end

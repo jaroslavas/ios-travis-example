@@ -56,7 +56,7 @@ platform :ios do
       # Setup app: name, bundle id, etc.
       read_app_data_from_env
       
-      # Prepare certificates , keys and provisioning profiles
+      # Prepare certificates, keys and provisioning profiles
       match(type: "appstore", force_for_new_devices: true, readonly: false) # creates certificates if needed
       
       # Make screenshots
@@ -77,7 +77,10 @@ platform :ios do
               )
               
       # Deploy to AppStore
-      deliver(force: true)
+      deliver(
+              force: true,
+              skip_deploy: true # Set true to not submit app for review (works with both App Store and beta builds)
+              )
               
   end
   

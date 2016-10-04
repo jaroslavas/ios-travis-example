@@ -132,9 +132,9 @@
 				D516A9DD1D6B2C3D00B281C5 /* Appfile */,
 				D516A9DC1D6B2C3600B281C5 /* Fastfile */,
 				D516A9DB1D6B2A6200B281C5 /* Snapfile */,
+				D5580D461DA3F3E80056E08B /* apple_credentials.sh */,
 				D516A9DE1D6C2B3E00B281C5 /* travis.sh */,
 				D516A9E01D6C2B7100B281C5 /* .travis.yml */,
-				D5580D461DA3F3E80056E08B /* apple_credentials.sh */,
 			);
 			name = CI;
 			sourceTree = "<group>";

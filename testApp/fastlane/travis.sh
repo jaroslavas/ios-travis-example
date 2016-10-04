@@ -47,7 +47,6 @@ echo "Some vars:"
 echo $DEPLOY_MATCH_USERNAME
 echo $TESTVAR
 echo $TESTVAR2
-echo $FASTLANE_PASSWORD
 
 # Run fastlane
 echo "Running fastlane"

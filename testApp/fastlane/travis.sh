@@ -14,6 +14,7 @@ if [ -z "$DEPLOY_CHANNEL" ]; then
 	return 1
 fi
 
+./fastlane/apple_credentials.sh
 
 #just to test agents:
 md5 testApp/Assets.xcassets/test_img.imageset/test_img.jpg

@@ -29,7 +29,7 @@ platform :ios do
   
   # -------------------- BETA (fabric.io) --------------------
   desc "Test and deploy"
-  lane :beta do
+  lane :deploy_fabric do
 
     # Setup app: name, bundle id, etc.
     read_app_data_from_env
@@ -51,7 +51,7 @@ platform :ios do
   
   # -------------------- RELEASE (AppStore) --------------------
   desc "Test and deploy"
-  lane :appstore do
+  lane :deploy_appstore do
       
       # Setup app: name, bundle id, etc.
       read_app_data_from_env

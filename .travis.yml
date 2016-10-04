@@ -10,5 +10,9 @@ before_install:
 # Force bundler 1.12.5 because version 1.13 has issues, see https://github.com/fastlane/fastlane/issues/6065#issuecomment-246044617
 - gem uninstall bundler -v '>1.12.5' --force || echo "bundler >1.12.5 is not installed"
 - gem install bundler -v 1.12.5 --no-rdoc --no-ri --no-document --quiet
+env:
+    global:
+        secure: "ROevUpCU9bmTdNCtP4CseiVAKuKL16evqXlpATbwPOWxz/4C/V3La4piGS195NVthySZYfs04F1moumz5aCvWie5/TTPiBqffhpXFYFyQANN+87j1oxqyrAtPXwy33rsZdqwblid6ldOxsB8tCNfPo/rE/iRK10px7TS92diAU+TJ4qWRUR6epxR7Pj36mIl/CV2b8b0+Ck4Z9Z/8Sv8FHUtih8CYAJWucgYIyjQPDH6MAtiD7Zde0WPfc1wXT1ZPERicqpiubYvK5ww6a8EPs5r95k39AlBDDAaLUHZXf/VPAEpMMxTgphyJn4e0PPFzhRtHwf7L9qLsh11JJvDE6fOeYxcqgtfdZtV5wmaH2uePH0N/cX77TnswAgMHo/hI1Rf4ioOgT6l5EEfCZL9AcqIWrxRczEnIAFRzHlnCel/xgRKFivBVQV/gXr9qVweWXATN6HT/7CW4/hiEV+GS36ReTBCDqU2qtsyJZZ8Yb/z8mSmQ0FU84+brvYhzLCar/+TrUmh2uNOMK32UTSj603pcr2br/64yeHfGp70SR8Wd+khmdeJLx3R01CRhTuCTvf4BMlJdXJEdvir56dlTRTY6/++JaypcPHHVAHFJW9ZKY2tueSnEiJmw8bjplp5W/4XjPSDQOr4g7qVQ0RSE52PXeg0DR+VLVK0W64ImiA="
+
 script:
 - cd testApp/ && ./fastlane/travis.sh

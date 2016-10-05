@@ -67,7 +67,7 @@ platform :ios do
       
       # Create new app in the appstore if needed
       produce(
-              username: DEPLOY_MATCH_USERNAME["DEPLOY_MATCH_USERNAME"],
+              username: ENV["DEPLOY_MATCH_USERNAME"],
               app_identifier: ENV["DEPLOY_PACKAGE_NAME"],
               app_name: ENV["DEPLOY_APPLICATION_NAME"],
               #language: 'English',

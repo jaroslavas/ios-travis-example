@@ -41,7 +41,7 @@
     
     XCUIApplication *app = [[XCUIApplication alloc] init];
     [app.images[@"test_img"] tap];
-    [[[[app.otherElements containingType:XCUIElementTypeImage identifier:@"test_img"] childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:1] tap];
+    //[[[[app.otherElements containingType:XCUIElementTypeImage identifier:@"test_img"] childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:1] tap];
     
     [Snapshot snapshot:@"01-TestScreen" waitForLoadingIndicator:NO];
     

@@ -57,7 +57,12 @@ platform :ios do
       read_app_data_from_env
       
       # Prepare certificates, keys and provisioning profiles
-      match(type: "appstore", force_for_new_devices: true, readonly: true) # creates certificates if needed
+      match( # creates certificates if needed
+            type: "appstore",
+            force_for_new_devices: true,
+            readonly: true,
+            app_identifier: ENV["DEPLOY_PACKAGE_NAME"]
+            )
       
       # Make screenshots
       snapshot

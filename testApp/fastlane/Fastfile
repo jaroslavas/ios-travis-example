@@ -78,7 +78,7 @@ platform :ios do
       # Deploy to AppStore
       deliver(
               force: true,
-              skip_deploy: true # Set true to not submit app for review (works with both App Store and beta builds)
+              submit_for_review: false
               )
               
   end

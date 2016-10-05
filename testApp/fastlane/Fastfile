@@ -65,14 +65,15 @@ platform :ios do
       #Build
       gym(scheme:"testApp", clean:true)
       
+      # AT the moment please create the app manually
       # Create new app in the appstore if needed
-      produce(
-              username: ENV["DEPLOY_MATCH_USERNAME"],
-              app_identifier: ENV["DEPLOY_PACKAGE_NAME"],
-              app_name: ENV["DEPLOY_APPLICATION_NAME"],
-              sku: ENV["DEPLOY_PACKAGE_NAME"],
-              team_name: ENV["DEPLOY_APPSTORE_TEAM_NAME"] # Only necessary when in multiple teams.
-              )
+      #      produce(
+      #        username: ENV["DEPLOY_MATCH_USERNAME"],
+      #        app_identifier: ENV["DEPLOY_PACKAGE_NAME"],
+      #        app_name: ENV["DEPLOY_APPLICATION_NAME"],
+      #        sku: ENV["DEPLOY_PACKAGE_NAME"],
+      #        team_name: ENV["DEPLOY_APPSTORE_TEAM_NAME"] # Only necessary when in multiple teams.
+      #        )
               
       # Deploy to AppStore
       deliver(

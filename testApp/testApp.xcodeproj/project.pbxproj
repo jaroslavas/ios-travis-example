@@ -657,8 +657,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = abc.test.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "115c67ac-0873-43e4-831e-59b614e1dcc9";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc abc.test.testApp";
+				PROVISIONING_PROFILE = "63e8dc15-db90-4bfc-b486-65f40adfcec1";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore abc.test.testApp";
 			};
 			name = Release;
 		};

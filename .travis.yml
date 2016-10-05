@@ -6,7 +6,7 @@ xcode_sdk: iphonesimulator10.0
 env: # DON'T WORK with build server
 - TESTVAR2=abcqqq
 before_install:
-- openssl aes-256-cbc -K $encrypted_35fdd88091fd_key -iv $encrypted_35fdd88091fd_iv -in ./testApp/fastlane/apple_credentials.sh.enc -out ./testApp/fastlane/apple_credentials.sh -d
+- openssl aes-256-cbc -K $encrypted_4cc2ae6d66f3_key -iv $encrypted_4cc2ae6d66f3_iv -in ./testApp/fastlane/apple_credentials.sh.enc -out ./testApp/fastlane/apple_credentials.sh -d
 - brew update
 - brew outdated homebrew/versions/node4-lts || brew install homebrew/versions/node4-lts
 - gem update fastlane

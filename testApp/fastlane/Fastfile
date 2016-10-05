@@ -70,8 +70,6 @@ platform :ios do
               username: ENV["DEPLOY_MATCH_USERNAME"],
               app_identifier: ENV["DEPLOY_PACKAGE_NAME"],
               app_name: ENV["DEPLOY_APPLICATION_NAME"],
-              #language: 'English',
-              version: ENV["DEPLOY_VERSION"],
               sku: ENV["DEPLOY_PACKAGE_NAME"],
               team_name: ENV["DEPLOY_APPSTORE_TEAM_NAME"] # Only necessary when in multiple teams.
               )

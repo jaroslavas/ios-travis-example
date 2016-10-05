@@ -63,7 +63,7 @@ platform :ios do
       snapshot
       
       #Build
-      gym(scheme:"testApp")
+      gym(scheme:"testApp", clean:true)
       
       # Create new app in the appstore if needed
       produce(
